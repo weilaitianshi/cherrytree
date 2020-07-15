@@ -12,9 +12,20 @@ jobs:
     - os: windows
     - os: osx
       osx_image: xcode11.4
+      cache:
+        directories:
+          - $HOME/Library/Caches/Homebrew
 
 compiler:
   - gcc
+
+before_cache:
+- |-
+    case $TRAVIS_OS_NAME in
+      osx)
+        brew cleanup
+        ;;
+    esac
 
 before_install:
 - |-
@@ -53,6 +64,7 @@ before_install:
         pip3 install lxml
         ;;
     esac
+
 install:
 - |-
     case $TRAVIS_OS_NAME in
@@ -76,6 +88,7 @@ install:
         $mingw64 mingw32-make install
         ;;
     esac
+
 script:
 - |-
     case $TRAVIS_OS_NAME in
