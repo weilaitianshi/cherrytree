@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 # for linux install: "python setup.py install --prefix=/usr -f"
 # for windows exe creation: "python setup.py py2exe"
