@@ -521,6 +521,8 @@ TEST_GROUP(CtDocRWGroup)
 {
 };
 
+#if !defined(__APPLE__) // TestCtApp causes crash on macos
+
 TEST(CtDocRWGroup, CtDocRW_all_variants)
 {
     for (const std::string& in_doc_path : UT::testAllDocTypes) {
@@ -533,3 +535,5 @@ TEST(CtDocRWGroup, CtDocRW_all_variants)
         }
     }
 }
+
+#endif // __APPLE__

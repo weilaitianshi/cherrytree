@@ -29,7 +29,5 @@ int main(int ac, char** av)
     // libp7za has memory leaks
     MemoryLeakWarningPlugin::turnOffNewDeleteOverloads();
 
-    Gio::init();
-
     return CommandLineTestRunner::RunAllTests(ac, av);
 }
